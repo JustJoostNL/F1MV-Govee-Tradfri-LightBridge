@@ -6,7 +6,7 @@
 
     <groupId>org.joost</groupId>
     <artifactId>F1MV-Govee-Tradfri-LightBridge</artifactId>
-    <version>2.0-SNAPSHOT</version>
+    <version>2.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <dependencies>

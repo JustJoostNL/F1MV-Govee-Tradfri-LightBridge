@@ -21,11 +21,18 @@ public class Ikea {
     Gateway gateway;
     boolean gatewayInitialized = false;
 
+    String disableIkea;
+
     // Class constructor, used to initialize variables
     public Ikea() {
         this.getProperties();
         this.gateway = new Gateway(gatewayIP);
-        if (!gatewayInitialized) {this.createCredentials();}
+        if (!gatewayInitialized) {
+            if(disableIkea.equals("false")) {
+                this.createCredentials();
+            }
+
+        }
     }
 
     public void createCredentials() {
@@ -93,6 +100,7 @@ public class Ikea {
         this.gatewayIdentity = PropertyWrapper.getProperty("ikea.gatewayIdentity");
         this.colorLights = PropertyWrapper.getProperty("ikea.colorLights");
         this.nonColorLights = PropertyWrapper.getProperty("ikea.nonColorLights");
+        this.disableIkea = PropertyWrapper.getProperty("ikea.disableIkea");
         gatewayInitialized = true;
 
         this.colorAllIDs = splitLightIDs(this.colorLights);

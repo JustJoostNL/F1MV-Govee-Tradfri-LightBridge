@@ -17,12 +17,29 @@ public class Main {
         f1mv.getSessionStatus();
         raceInProgress = !((Objects.equals(f1mv.sessionStatus, "Finalised")) | (Objects.equals(f1mv.sessionStatus, "Ends")));
 
+        Ikea ikea = new Ikea();
         String lastTrackStatus = "";
         Govee govee = new Govee();
-        govee.lightSwitch(true);
-        govee.setBrightness(100); // initialize Govee at maximum brightness.
-        Ikea ikea = new Ikea();
-        ikea.connect();
+        if(govee.disableGovee.equals("true"))
+        {
+            System.out.println("Govee integration disabled!");
+        }
+        else if(govee.disableGovee.equals("false"))
+        {
+            System.out.println("Govee integration enabled!");
+            govee.lightSwitch(true);
+            govee.setBrightness(100); // initialize Govee at maximum brightness.
+        }
+
+        if(ikea.disableIkea.equals("true")) {
+            System.out.println("Ikea integration disabled!");
+
+        }
+        else if (ikea.disableIkea.equals("false")) {
+            System.out.println("Ikea integration enabled!");
+            ikea.connect();
+        }
+
 
         if (args.length > 0) {
             switch (args[0]) {
@@ -58,7 +75,9 @@ public class Main {
                 switch (f1mv.trackStatus) {
                     case "1" -> {
                         System.out.println("Green flag!");
-                        govee.setColor(Color.green);
+                        if(govee.disableGovee.equals("false")) {
+                            govee.setColor(Color.green);
+                        }
                         if (!ikea.nonColorLights.equals("000")) {
                             ikea.updateNonColorLights(0, 0, false);
                         }
@@ -69,7 +88,9 @@ public class Main {
                     }
                     case "2" -> {
                         System.out.println("Yellow Flag!");
-                        govee.setColor(Color.yellow);
+                        if(govee.disableGovee.equals("false")) {
+                            govee.setColor(Color.yellow);
+                        }
                         if (!ikea.nonColorLights.equals("000")) {
                             ikea.updateNonColorLights(454,200, true);
                         }
@@ -80,7 +101,9 @@ public class Main {
                     }
                     case "4" -> {
                         System.out.println("Safety Car!");
-                        govee.setColor(Color.yellow);
+                        if(govee.disableGovee.equals("false")) {
+                            govee.setColor(Color.yellow);
+                        }
                         if (!ikea.nonColorLights.equals("000")) {
                             ikea.updateNonColorLights(454,200, true);
                         }
@@ -91,7 +114,9 @@ public class Main {
                     }
                     case "5" -> {
                         System.out.println("Red flag!");
-                        govee.setColor(Color.red);
+                        if(govee.disableGovee.equals("false")) {
+                            govee.setColor(Color.red);
+                        }
                         if(!ikea.nonColorLights.equals("000")) {
                             ikea.updateNonColorLights(454,200,true);
                             Thread.sleep(800);
@@ -126,7 +151,9 @@ public class Main {
                     }
                     case "6" -> {
                         System.out.println("Virtual Safety Car!");
-                        govee.setColor(Color.yellow);
+                        if(govee.disableGovee.equals("false")) {
+                            govee.setColor(Color.yellow);
+                        }
                         if (!ikea.nonColorLights.equals("000")) {
                             ikea.updateNonColorLights(454,200, true);
                         }
@@ -137,7 +164,9 @@ public class Main {
                     }
                     case "7" -> {
                         System.out.println("Virtual Safety Car ending!");
-                        govee.setColor(purple);
+                        if(govee.disableGovee.equals("false")) {
+                            govee.setColor(Color.yellow);
+                        }
                         if (!ikea.nonColorLights.equals("000")) {
                             ikea.updateNonColorLights(200,200, true);
                         }

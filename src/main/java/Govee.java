@@ -14,6 +14,7 @@ public class Govee {
      String goveeAPIKey;
      String goveeDeviceMAC;
      String goveeDeviceModel;
+     String disableGovee;
      Gson gson = new Gson();
 
      private final GoveeJsonWrapper goveeJsonWrapper = new GoveeJsonWrapper();
@@ -97,5 +98,6 @@ public class Govee {
           this.goveeAPIKey = PropertyWrapper.getProperty("govee.goveeAPIKey");
           this.goveeDeviceMAC = PropertyWrapper.getProperty("govee.goveeDeviceMAC");
           this.goveeDeviceModel = PropertyWrapper.getProperty("govee.goveeDeviceModel");
+          this.disableGovee = PropertyWrapper.getProperty("govee.disableGovee");
      }
 }
