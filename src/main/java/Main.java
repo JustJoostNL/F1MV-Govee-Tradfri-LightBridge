@@ -26,6 +26,7 @@ public class Main {
             switch (args[0]) {
                 case "--list-devices" -> {
                     System.out.println("Listing devices...");
+                    ikea.connect();
                     ikea.listDevices();
                     System.out.println("Done listing devices.");
                 }
