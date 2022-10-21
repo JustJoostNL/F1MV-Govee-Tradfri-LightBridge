@@ -1,23 +1,9 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
 
 
 
 <!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -28,11 +14,11 @@
 <!-- PROJECT LOGO -->
 
 <h3 align="center">F1MV Govee and Tradfri Lights Integration</h3>
-
+<div align="center">
   <p align="center">
     Connect your Govee and Tradfri lights to your F1MV
     <br />
-    <a href="https://github.com/koningcool/F1MV-Govee-Tradfri-LightBridge"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/koningcool/F1MV-Govee-Tradfri-LightBridge/wiki/First-Time-Configuration"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://github.com/koningcool/F1MV-Govee-Tradfri-LightBridge/issues">Report Bug</a>
@@ -200,7 +186,7 @@ Distributed under the GNU General Public License v3.0. See `LICENSE.md` for more
 [f1mv]: https://img.shields.io/badge/MultiViewer%20For%20F1-fb1e07.svg?style=for-the-badge&logo=f1&logoColor=white
 [f1mv-url]: https://beta.f1mv.com
 [releases-url]: https://github.com/koningcool/F1MV-Govee-Tradfri-LightBridge/releases
-[wikiurl]: https://github.com/koningcool/F1MV-Govee-Tradfri-LightBridge/wiki
+[wikiurl]: https://github.com/koningcool/F1MV-Govee-Tradfri-LightBridge/wiki/First-Time-Configuration
 [issuesurl]: https://github.com/koningcool/F1MV-Govee-Tradfri-LightBridge/issues
 [tradfri-api-badge]: https://img.shields.io/badge/Stijngroenen%20Tradfri%20API-green.svg?style=for-the-badge
 [tradfri-api]: https://github.com/stijngroenen/tradfri-tradfri-api
