@@ -2,6 +2,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.concurrent.Executors;
 
 public class Main {
     static boolean raceInProgress;
@@ -12,7 +13,7 @@ public class Main {
     static Color light_green = new Color(128,255,128);
 
     @SuppressWarnings("BusyWait")
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException {
         f1mv = new F1mv();
         f1mv.getSessionStatus();
         raceInProgress = !((Objects.equals(f1mv.sessionStatus, "Finalised")) | (Objects.equals(f1mv.sessionStatus, "Ends")));
@@ -115,37 +116,43 @@ public class Main {
                     case "5" -> {
                         System.out.println("Red flag!");
                         if(govee.disableGovee.equals("false")) {
-                            govee.setColor(Color.red);
+                            try {
+                                Executors.newSingleThreadExecutor().submit(() -> {
+                                    try {
+                                       redOnGovee();
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                });
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
                         if(!ikea.nonColorLights.equals("000")) {
-                            ikea.updateNonColorLights(454,200,true);
-                            Thread.sleep(800);
-                            ikea.updateNonColorLights(454,200,false);
-                            Thread.sleep(800);
-                            ikea.updateNonColorLights(454,200,true);
-                            Thread.sleep(800);
-                            ikea.updateNonColorLights(454,200,false);
-                            Thread.sleep(800);
-                            ikea.updateNonColorLights(454,200,true);
-                            Thread.sleep(800);
-                            ikea.updateNonColorLights(454,200,false);
-                            Thread.sleep(800);
-                            ikea.updateNonColorLights(454,200,true);
+                            try {
+                                Executors.newSingleThreadExecutor().submit(() -> {
+                                    try {
+                                        redBlinkNonColor();
+                                    } catch (InterruptedException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                });
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
                         if (!ikea.colorLights.equals("000")) {
-                            ikea.updateColorLights(Color.red, true);
-                            Thread.sleep(800);
-                            ikea.updateColorLights(Color.red, false);
-                            Thread.sleep(800);
-                            ikea.updateColorLights(Color.red, true);
-                            Thread.sleep(800);
-                            ikea.updateColorLights(Color.red, false);
-                            Thread.sleep(800);
-                            ikea.updateColorLights(Color.red, true);
-                            Thread.sleep(800);
-                            ikea.updateColorLights(Color.red, false);
-                            Thread.sleep(800);
-                            ikea.updateColorLights(Color.red, true);
+                            try {
+                                Executors.newSingleThreadExecutor().submit(() -> {
+                                    try {
+                                        redBlinkColor();
+                                    } catch (InterruptedException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                });
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
                         }
                         lastTrackStatus = f1mv.trackStatus;
                     }
@@ -192,4 +199,42 @@ public class Main {
                 }
             }
         }
+        public static void redBlinkNonColor() throws InterruptedException {
+            Ikea ikea = new Ikea();
+            ikea.updateNonColorLights(454,200,true);
+            Thread.sleep(800);
+            ikea.updateNonColorLights(454,200,false);
+            Thread.sleep(800);
+            ikea.updateNonColorLights(454,200,true);
+            Thread.sleep(800);
+            ikea.updateNonColorLights(454,200,false);
+            Thread.sleep(800);
+            ikea.updateNonColorLights(454,200,true);
+            Thread.sleep(800);
+            ikea.updateNonColorLights(454,200,false);
+            Thread.sleep(800);
+            ikea.updateNonColorLights(454,200,true);
+        }
+        public static void redOnGovee() throws IOException {
+                Govee govee = new Govee();
+                govee.setColor(Color.red);
+        }
+
+        public static void redBlinkColor() throws InterruptedException {
+            Ikea ikea = new Ikea();
+            ikea.updateColorLights(Color.red,true);
+            Thread.sleep(800);
+            ikea.updateColorLights(Color.red,false);
+            Thread.sleep(800);
+            ikea.updateColorLights(Color.red,true);
+            Thread.sleep(800);
+            ikea.updateColorLights(Color.red,false);
+            Thread.sleep(800);
+            ikea.updateColorLights(Color.red,true);
+            Thread.sleep(800);
+            ikea.updateColorLights(Color.red,false);
+            Thread.sleep(800);
+            ikea.updateColorLights(Color.red,true);
+        }
+
 }
