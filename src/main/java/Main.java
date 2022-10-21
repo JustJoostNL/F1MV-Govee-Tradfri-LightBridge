@@ -21,26 +21,6 @@ public class Main {
         Ikea ikea = new Ikea();
         String lastTrackStatus = "";
         Govee govee = new Govee();
-        if(govee.disableGovee.equals("true"))
-        {
-            System.out.println("Govee integration disabled!");
-        }
-        else if(govee.disableGovee.equals("false"))
-        {
-            System.out.println("Govee integration enabled!");
-            govee.lightSwitch(true);
-            govee.setBrightness(100); // initialize Govee at maximum brightness.
-        }
-
-        if(ikea.disableIkea.equals("true")) {
-            System.out.println("Ikea integration disabled!");
-
-        }
-        else if (ikea.disableIkea.equals("false")) {
-            System.out.println("Ikea integration enabled!");
-            ikea.connect();
-        }
-
 
         if (args.length > 0) {
             switch (args[0]) {
@@ -65,9 +45,29 @@ public class Main {
 
                 default -> System.out.println("Invalid argument. Use --help to get a list of possible arguments.");
 
-                 }
-                System.exit(0);
             }
+            System.exit(0);
+        }
+
+        if(govee.disableGovee.equals("true"))
+        {
+            System.out.println("Govee integration disabled!");
+        }
+        else if(govee.disableGovee.equals("false"))
+        {
+            System.out.println("Govee integration enabled!");
+            govee.lightSwitch(true);
+            govee.setBrightness(100); // initialize Govee at maximum brightness.
+        }
+
+        if(ikea.disableIkea.equals("true")) {
+            System.out.println("Ikea integration disabled!");
+
+        }
+        else if (ikea.disableIkea.equals("false")) {
+            System.out.println("Ikea integration enabled!");
+            ikea.connect();
+        }
 
 
         while (raceInProgress && ikea.colorLights != null && ikea.nonColorLights != null) {
