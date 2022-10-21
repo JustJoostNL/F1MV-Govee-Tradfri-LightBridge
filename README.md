@@ -128,7 +128,8 @@ Please go to the [Wiki][wikiurl] for usage instructions.
 
 - [ ] Add support for mulitple Govee devices
 - [ ] Create a proper installer
-- [ ] Use JavaScript instead of Java
+- [ ] Add support for multiple Govee devices
+<!--  - [ ] Use JavaScript instead of Java -->
 <!--    - [ ] Nested Feature -->
 
 See the [open issues][issuesurl]) for a full list of proposed features (and known issues).
