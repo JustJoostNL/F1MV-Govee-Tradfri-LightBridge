@@ -12,6 +12,8 @@ public class Main {
     static Color purple = new Color(128,0,128);
     static Color light_green = new Color(128,255,128);
 
+    static Color gold = new Color(246,203,0);
+
     @SuppressWarnings("BusyWait")
     public static void main(String[] args) throws IOException {
         f1mv = new F1mv();
@@ -97,7 +99,7 @@ public class Main {
                             ikea.updateNonColorLights(454,200, true);
                         }
                         if (!ikea.colorLights.equals("000")) {
-                            ikea.updateColorLights(Color.yellow, true);
+                            ikea.updateColorLights(gold, true);
                         }
                         lastTrackStatus = f1mv.trackStatus;
                     }
@@ -110,7 +112,7 @@ public class Main {
                             ikea.updateNonColorLights(454,200, true);
                         }
                         if (!ikea.colorLights.equals("000")) {
-                            ikea.updateColorLights(Color.yellow, true);
+                            ikea.updateColorLights(gold, true);
                         }
                         lastTrackStatus = f1mv.trackStatus;
                     }
@@ -166,7 +168,7 @@ public class Main {
                             ikea.updateNonColorLights(454,200, true);
                         }
                         if (!ikea.colorLights.equals("000")) {
-                            ikea.updateColorLights(Color.yellow, true);
+                            ikea.updateColorLights(gold, true);
                         }
                         lastTrackStatus = f1mv.trackStatus;
                     }
@@ -179,7 +181,7 @@ public class Main {
                             ikea.updateNonColorLights(200,200, true);
                         }
                         if (!ikea.colorLights.equals("000")) {
-                            ikea.updateColorLights(light_green, true);
+                            ikea.updateColorLights(gold, true);
                         }
                         lastTrackStatus = f1mv.trackStatus;
                     }
