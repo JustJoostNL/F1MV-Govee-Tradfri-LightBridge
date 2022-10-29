@@ -89,7 +89,7 @@ Getting started is very easy. Just follow the steps below. If you have any quest
 
 ### Prerequisites
 
-You need to have java installed on your computer. You can download it [here](https://www.java.com/en/download/)
+You need to have java installed on your computer. You can download it [here](https://www.oracle.com/java/technologies/javase/jdk18-archive-downloads.html)
 
 ### Installation
 
